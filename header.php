@@ -55,7 +55,6 @@ global $woo_options, $woocommerce;
 
 			<div class="fl" id="logo">
 		    	
-
 		    	<?php
 				    $logo = esc_url( get_template_directory_uri() . '/images/logo.png' );
 					if ( isset( $woo_options['woo_logo'] ) && $woo_options['woo_logo'] != '' ) { $logo = $woo_options['woo_logo']; }
@@ -66,13 +65,11 @@ global $woo_options, $woocommerce;
 				    	<img src="<?php echo $logo; ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
 				    </a>
 			    <?php } ?>
-
-				<h3 class="nav-toggle"><a href="#navigation"><mark class="websymbols">&#178;</mark> <span><?php _e('Navigation', 'woothemes'); ?></span></a></h3>
-
 				
 		    </div>
 		    <div class="fr nav-wrapper">
 		    	<nav id="nav-container" class="fix" role="navigation">
+		    		<h3 class="nav-toggle"><a href="#navigation"><mark class="websymbols">&#178;</mark> <span><?php _e('Navigation', 'woothemes'); ?></span></a></h3>
 					<div class="social-media fr">
 						<a class="social-icon" href="http://facebook.com/RevivalCars"><img src="<?php echo get_template_directory_uri(); ?>/images/facebook.png" alt=""></a>
 					</div>

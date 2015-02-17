@@ -237,20 +237,9 @@ button.blue {
 #nav-container {
 	margin-top: 30px;
 }
-
-#main-nav li a {
-	padding: 0.53em 0.8em;
-}
 #main-nav li a {
 	padding: 0.53em 0.87em;
 }
-#main-nav li:first-child a {
-	padding-left: 0;
-}
-#main-nav li:last-child a {
-	padding-right: 0;
-}
-
 
 /* Secondary Nav */
 
@@ -284,6 +273,7 @@ button.blue {
 
 #header {
 	border-bottom: 0;
+	padding-top: 0;
 }
 
 #header hgroup {
@@ -783,8 +773,23 @@ Add styles inside the media query below that you only want to be applied to the 
 		width: 100%;
 		clear: both;
 	}
+	#header {
+		margin-bottom: 0;
+	}
+	#header hgroup {
+		margin: 0;
+	}
 	#header #top-nav {
 		display: none;
+	}
+	#header .nav-toggle a {
+		position: relative;
+		top: 3px;
+	}
+	.social-media {
+		position: absolute;
+		top: 0.8em;
+		right: 2.5em;
 	}
 	.slide-text-box h1 {
 		font-size: 36px;
@@ -833,10 +838,10 @@ Add styles inside the media query below that you only want to be applied to the 
 		margin-top: 60px;
 	}
 
-	#header #navigation ul.nav > li:first-child a {
-		padding-left: 0;
+	#main-nav li:first-child a {
+	padding-left: 0;
 	}
-	#header #navigation ul.nav > li:last-child a {
+	#main-nav li:last-child a {
 		padding-right: 0;
 	}
 
