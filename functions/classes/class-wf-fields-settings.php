@@ -39,7 +39,7 @@ class WF_Fields_Settings extends WF_Fields {
 
 		// Allow script tags in the Google Analytics field.
 		if ( is_array( $k ) && isset( $k['id'] ) && in_array( $k['id'], $this->get_script_supported_fields() ) ) {
-			$allowed['script'] = array( 'type' => true, 'id' => true, 'class' => true );
+			$allowed['script'] = array( 'type' => true, 'id' => true, 'class' => true, 'src'=> true );
 		}
 
 		return wp_kses( $v, $allowed );

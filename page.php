@@ -22,6 +22,14 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
     <div id="content" class="page col-full">
     
     	<?php woo_main_before(); ?>
+        <div class="col-full">
+            <header>
+                <h1><?php the_title(); ?></h1>
+            </header>            
+            <div class="featured-image">
+                <?php the_post_thumbnail( 'content-img', array('class'=>'featured-page') );  ?>
+            </div>
+        </div>
     	
 		<section id="main" class="col-left"> 			
 
@@ -31,17 +39,13 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
         ?>                                                           
             <article <?php post_class(); ?>>
 				
-				<header>
-			    	<h1><?php the_title(); ?></h1>
-				</header>
-				
                 <section class="entry">
                 	<?php the_content(); ?>
 
 					<?php wp_link_pages( array( 'before' => '<div class="page-link">' . __( 'Pages:', 'woothemes' ), 'after' => '</div>' ) ); ?>
                	</section><!-- /.entry -->
 
-				<?php edit_post_link( __( '{ Edit }', 'woothemes' ), '<span class="small">', '</span>' ); ?>
+				<div class="addthis_sharing_toolbox"></div>
                 
             </article><!-- /.post -->
             

@@ -5,8 +5,8 @@
 		editor.addCommand( 'woo_open_dialog', function( ui, v ) {
 			wooSelectedShortcodeType = v;
 			selectedText = editor.selection.getContent({format: 'text'});
+            wooDialogHelper.setupShortcodeType( v );
 			wooDialogHelper.loadShortcodeDetails();
-			wooDialogHelper.setupShortcodeType( v );
 
 			jQuery( '#woo-options' ).addClass( 'shortcode-' + v );
 

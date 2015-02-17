@@ -118,6 +118,17 @@ class WF_Settings {
 	} // End admin_notices()
 
 	/**
+	 * Recursive stripslashes function to handle arrays within arrays
+	 * @access  public
+	 * @since   6.1.2
+	 * @return  $value object
+	 */	
+	public function stripslashes_deep($value) {
+    	$value = is_array($value) ? array_map('stripslashes_deep', $value) : stripslashes($value);
+    	return $value;
+	} // End stripslashes_deep()
+	
+	/**
 	 * Run logic on the WooFramework settings screen.
 	 * @access  public
 	 * @since   6.0.0
@@ -126,6 +137,8 @@ class WF_Settings {
 	public function settings_screen_logic () {
 		if ( ! empty( $_POST ) && check_admin_referer( $this->_field_obj->__get( 'token' ) . '_nonce', $this->_field_obj->__get( 'token' ) . '_nonce' ) ) {
 			$data = $_POST;
+
+			$data = array_map( 'stripslashes_deep', $data );
 
 			$page = 'woothemes';
 			if ( isset( $data['page'] ) ) {

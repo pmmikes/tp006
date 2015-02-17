@@ -28,14 +28,6 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 ?>
 
 	<article <?php post_class(); ?>>
-		<aside class="meta">
-			<a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
-				<?php echo get_avatar( get_the_author_meta('email'), '128' ); ?>
-			</a>
-			<span class="month"><?php the_time( 'M' ); ?></span>
-			<span class="day"><?php the_time( 'd' ); ?></span>
-			<span class="year"><?php the_time( 'o' ); ?></span>
-		</aside>
 		
 		<section class="post-content">
 		    <?php 
@@ -46,11 +38,25 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 		    
 			<header>
 				<h1><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
-				<?php woo_post_meta(); ?>
+				<aside class="post-meta">
+					<a href="<?php the_permalink(); ?>"><?php echo date('F j, Y'); ?></a>
+				</aside>
+				<h2 class="post-subtitle">
+					<?php if (types_render_field('subtitle', array('output'=>'html')) != '') {
+						echo types_render_field('subtitle', array('output'=>'html'));
+					} ?>
+				</h2>
+
+				<?php 
+			    	if (has_post_thumbnail()) {
+						the_post_thumbnail( 'blog-featured', array('class'=>'single-blog') );  
+					}
+				?>
 			</header>
 	
 			<section class="entry">
 			<?php if ( isset( $woo_options['woo_post_content'] ) && $woo_options['woo_post_content'] == 'content' ) { the_content( __( 'Continue Reading &rarr;', 'woothemes' ) ); } else { the_excerpt(); } ?>
+			<a href="<?php the_permalink(); ?>"><button>Read More</button></a>
 			</section>
 	
 			  

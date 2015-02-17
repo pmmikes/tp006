@@ -44,13 +44,23 @@ foreach ( $includes as $i ) {
 /* You can add custom functions below */
 /*-----------------------------------------------------------------------------------*/
 
+// Including some google fonts
 
+function register_customscripts() {
+	wp_register_style('google-fonts', 'http://fonts.googleapis.com/css?family=Roboto:500,500italic400,400italic,300,300italic,700,700italic|Merriweather:400,300,300italic,700,700italic,400italic100,100italic');
+	wp_enqueue_style( 'google-fonts' );
+	wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-54d348a9076425e3');
+	wp_enqueue_script('addthis');
+} add_action( 'wp_enqueue_scripts', 'register_customscripts' );
 
-
-
-
-
-
+// Let's enable featured images
+add_theme_support( 'post-thumbnails' ); 
+	// And configure some sizes
+		add_image_size( 'content-img', 1040, 350 ); // Main featured image on content pages	
+		add_image_size( 'home-thumb', 333, 214 ); // To be shown on the home page	
+		add_image_size( 'blog-featured', 640, 357 ); // To be shown on the home page		
+		add_image_size( 'listing-featured', 510, 510); // Main listing image
+		add_image_size( 'listing-gallery', 245, 245); // Listing gallery thumbnails
 
 
 /*-----------------------------------------------------------------------------------*/

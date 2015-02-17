@@ -1665,7 +1665,7 @@ class WF_Fields {
 
 			$this->_fields[$key] = $v;
 		}
-
+		$this->_fields = (array)apply_filters( 'wf_fields_init_fields', $this->_fields, $this->_fields );
 		return $this->_fields;
 	} // End init_fields()
 

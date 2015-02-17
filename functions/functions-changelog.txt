@@ -1,5 +1,29 @@
 *** WooThemes Framework Changelog ***
 
+2015.02.06 - version 6.1.2
+ * Fix - Typography settings saving fixed.
+   classes/class-wf-settings.php
+
+2015.02.04 - version 6.1.1
+ * Fix - Notice on menu screen when adding pages
+   classes/class-wf-meta.php
+
+ * Fix - Shortcode generator button
+   js/shortcode-generator/editor_plugin_39.js
+
+2014.12.01 - version 6.1.0
+ * Update - Removes timthumb from the framework and converts old custom fields into Featured Images.
+   /admin-functions.php,
+   /deprecated.php,
+   /thumb.php,
+   /classes/class-wf-fields.php
+ * Fix - Open Sans font weights
+   /admin-functions.php
+ * Fix - Allow the script tag source attribute within the advertisement settings field.
+   /classes/class-wf-fields-settings.php
+ * Fix - Ensures there are no unnecessary slashes being added, when saving settings.
+   /classes/class-wf-settings.php
+
 2014.09.04 - version 6.0.4
  * Fix - Adds support for the woo_ad_top_adsense field to support <script> tags.
    /classes/class-wf-fields-settings.php

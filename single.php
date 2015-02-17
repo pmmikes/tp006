@@ -45,27 +45,28 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
         		while ( have_posts() ) { the_post(); $count++;
         ?>
 			<article <?php post_class(); ?>>
-				<aside class="meta">
-					<a href="<?php echo get_author_posts_url(get_the_author_meta( 'ID' )); ?>">
-						<?php echo get_avatar( get_the_author_meta('email'), '128' ); ?>
-					</a>
-					<span class="month"><?php the_time( 'M' ); ?></span>
-					<span class="day"><?php the_time( 'd' ); ?></span>
-					<span class="year"><?php the_time( 'o' ); ?></span>
-				</aside>
+				<header>
+					<h1><a href="<?php the_permalink(); ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+					<aside class="post-meta">
+						<a href="<?php the_permalink(); ?>"><?php echo date('F j, Y'); ?></a>
+					</aside>
+					<h2 class="post-subtitle">
+						<?php if (types_render_field('subtitle', array('output'=>'html')) != '') {
+							echo types_render_field('subtitle', array('output'=>'html'));
+						} ?>
+					</h2>
+
+					<?php 
+				    	if (has_post_thumbnail()) {
+							the_post_thumbnail( 'blog-featured', array('class'=>'single-blog') );  
+						}
+					?>
+				</header>
 				
 				<section class="post-content">
 
 					<?php echo woo_embed( 'width=787' ); ?>
 	                <?php if ( $settings['thumb_single'] == 'true' && ! woo_embed( '' ) ) { woo_image( 'width=' . $settings['single_w'] . '&height=' . $settings['single_h'] . '&class=thumbnail ' . $settings['thumb_single_align'] ); } ?>
-	
-	                <header>
-	                
-		                <h1><?php the_title(); ?></h1>
-		                
-	                	<?php woo_post_meta(); ?>
-	                	
-	                </header>
 	                
 	                <section class="entry fix">
 	                	<?php the_content(); ?>
@@ -73,15 +74,13 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 					</section>
 													
 				</section>
+
+				<div class="addthis_sharing_toolbox"></div>
                                 
             </article><!-- .post -->
 
 				<?php woo_subscribe_connect(); ?>
 
-	        <nav id="post-entries" class="fix">
-	            <div class="nav-prev fl"><?php previous_post_link( '%link', '<span class="meta-nav">&larr;</span> %title' ); ?></div>
-	            <div class="nav-next fr"><?php next_post_link( '%link', '%title <span class="meta-nav">&rarr;</span>' ); ?></div>
-	        </nav><!-- #post-entries -->
             <?php
             	// Determine wether or not to display comments here, based on "Theme Options".
             	if ( isset( $woo_options['woo_comments'] ) && in_array( $woo_options['woo_comments'], array( 'post', 'both' ) ) ) {

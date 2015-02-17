@@ -44,7 +44,7 @@ add_action('woo_main_before','woo_display_breadcrumbs',10);
 if (!function_exists( 'woo_display_breadcrumbs')) {
 	function woo_display_breadcrumbs() {
 		global $woo_options;
-		if ( isset( $woo_options['woo_breadcrumbs_show'] ) && $woo_options['woo_breadcrumbs_show'] == 'true' && ! (is_home()) ) {
+		if ( isset( $woo_options['woo_breadcrumbs_show'] ) && $woo_options['woo_breadcrumbs_show'] == 'true' && ! (is_front_page()) ) {
 		echo '<section id="breadcrumbs">';
 			woo_breadcrumbs();
 		echo '</section><!--/#breadcrumbs -->';
