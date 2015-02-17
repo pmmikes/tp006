@@ -727,25 +727,6 @@ input[type="text"]:focus, input.input-text:focus, textarea:focus, input.txt:focu
 }
 
 /* 
- * ##########################
- * 
- * DELETE THESE!!!
- *
- * ##########################
- */
-img.slider {
-	padding: 0;
-	border: none;
-	width: 100%;
-}
-.col {
-	background-color: #f2f2f2;
-}
-.home .col, .archive .col, .single .col {
-	background-color: #FFF;
-}
-
-/* 
 DESKTOP STYLES
 -----------------
 Add styles inside the media query below that you only want to be applied to the desktop layout of your site */
