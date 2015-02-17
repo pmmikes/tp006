@@ -53,7 +53,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 		<div class="section group home-features">
 			<div class="col span_3_of_12 home-link">
 				<div class="home-link-wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home-1.png');">
-					<a href="/engine-rebuild">
+					<a href="<?php echo get_permalink('20'); ?>">
 						<div class="home-text grey">
 							<h3>Engine rebuild</h3>
 						</div>
@@ -62,7 +62,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 			</div>
 			<div class="col span_3_of_12 home-link">
 				<div class="home-link-wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home-2.png');">
-					<a href="/servicing">
+					<a href="<?php echo get_permalink('22'); ?>">
 						<div class="home-text yellow">
 							<h3>Servicing</h3>
 						</div>
@@ -71,7 +71,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 			</div>
 			<div class="col span_3_of_12 home-link">
 				<div class="home-link-wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home-3.png');">
-					<a href="/gallery">
+					<a href="<?php echo get_permalink('116' ); ?>">
 						<div class="home-text lblue">
 							<h3>Happy customers and gallery</h3>
 						</div>
@@ -80,7 +80,7 @@ if ( ! empty( $_SERVER['SCRIPT_FILENAME'] ) && basename( __FILE__ ) == basename(
 			</div>
 			<div class="col span_3_of_12 home-link">
 				<div class="home-link-wrapper" style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/home-4.png');">
-					<a href="/spares">
+					<a href=" <?php echo get_post_type_archive_link( 'spares' ); ?> ">
 						<div class="home-text blue">
 							<h3>Spares</h3>
 						</div>
